@@ -10,9 +10,9 @@ def get_utente():
     db_connection = sqlite3.connect('database.db')
     cursor = db_connection.cursor()
 
-    # Vulnerabilità SQL Injection (String formatting)
-    query = "SELECT nome, email FROM utenti WHERE id = {}".format(utente_id)
-    cursor.execute(query)
+    # Utilizzo di query parametrizzata per prevenire SQL Injection
+    query = "SELECT nome, email FROM utenti WHERE id = ?"
+    cursor.execute(query, (utente_id,))
     utente = cursor.fetchone()
 
     db_connection.close()
