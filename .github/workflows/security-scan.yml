@@ -3,46 +3,65 @@ name: Security Scan
 on:
   push:
     branches: [ "main" ]
+    # Esegui il workflow su eventi push nel branch main
   pull_request:
     branches: [ "main" ]
+    # Esegui il workflow su eventi pull request nel branch main
 
-# Define the permissions required for the workflow
+# Definisci i permessi richiesti per il workflow
 permissions:
   actions: read
+  # Accesso in lettura alle azioni
   contents: read
+  # Accesso in lettura ai contenuti del repository
   security-events: write
+  # Accesso in scrittura agli eventi di sicurezza
 
 jobs:
   security-checks:
     runs-on: ubuntu-latest
+    # Usa l'ultima versione di Ubuntu come runner
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        # Effettua il checkout del codice del repository
 
-      - name: Setup Python  # Necessario per Checkov e il progetto Python di esempio
+      - name: Setup Python
+        # Necessario per Checkov e il progetto Python di esempio
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+          # Specifica la versione di Python 3.9
 
       - name: CodeQL Initialize
         uses: github/codeql-action/init@v3
+        # Inizializza CodeQL per l'analisi del codice
         with:
-          languages: python  # Specifica i linguaggi da analizzare
+          languages: python
+          # Specifica i linguaggi da analizzare
 
       - name: CodeQL Autobuild
         uses: github/codeql-action/autobuild@v3
+        # Costruisce automaticamente il codice per l'analisi
 
       - name: CodeQL Analyze
         uses: github/codeql-action/analyze@v3
+        # Esegue l'analisi con CodeQL
 
       - name: Checkov Scan
         uses: bridgecrewio/checkov-action@v12
+        # Esegue la scansione di sicurezza con Checkov
         with:
-          framework: kubernetes,terraform,dockerfile # Specifica i framework da scansionare
-          directory: . # Directory da scansionare (root del repository)
+          framework: kubernetes,terraform,dockerfile
+          # Specifica i framework da scansionare
+          directory: .
+          # Directory da scansionare (root del repository)
         continue-on-error: true
+        # Continua il workflow anche se la scansione Checkov fallisce
 
       - name: Upload SARIF report to GitHub
         uses: github/codeql-action/upload-sarif@v3
+        # Carica il report SARIF su GitHub
         with:
           sarif_file: results.sarif
+          # Specifica il file SARIF da caricare

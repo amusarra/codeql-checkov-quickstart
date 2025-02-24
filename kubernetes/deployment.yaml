@@ -13,9 +13,11 @@ spec:
         app: python-app
     spec:
       containers:
-      - name: python-app
-        image: python-app-image:latest # Immagine Docker da buildare
-        ports:
-        - containerPort: 5000
-        securityContext:
-          privileged: true # Container in modalità privilegiata!
+        - name: python-app
+          image: docker.io/amusarra/codeql-checkov-quickstart:latest # Immagine Docker da buildare
+          ports:
+            - containerPort: 5000
+          securityContext:
+            privileged: true # Container in modalità privilegiata!
+          resources: # Limiti di risorse MANCANTI! VULNERABILITA'
+            { } # Nessun limite specificato!
