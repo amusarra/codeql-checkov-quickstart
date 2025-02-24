@@ -41,3 +41,8 @@ jobs:
           framework: kubernetes,terraform,dockerfile # Specifica i framework da scansionare
           directory: . # Directory da scansionare (root del repository)
         continue-on-error: true
+
+      - name: Upload SARIF report to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
