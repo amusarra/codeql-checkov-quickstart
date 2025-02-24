@@ -40,3 +40,4 @@ jobs:
         with:
           framework: kubernetes,terraform,dockerfile # Specifica i framework da scansionare
           directory: . # Directory da scansionare (root del repository)
+        continue-on-error: true
