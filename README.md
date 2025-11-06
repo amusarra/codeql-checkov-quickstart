@@ -1,6 +1,6 @@
 # Progetto dimostrativo di sicurezza con GitHub CodeQL e Checkov
 
-Questo progetto è stato creato per dimostrare l'integrazione tra **GitHub CodeQL** (GitHub Code Scanning) e **Checkov** attraverso **GitHub Actions**, come descritto nell'[articolo di integrazione](https://www.google.com/url?sa=E&source=gmail&q=./INTEGRAZIONE_CODEQL_CHECKOV.md) **@TODO: Inserire link a TheRedCode.it**.
+Questo progetto è stato creato per dimostrare l'integrazione tra **GitHub CodeQL** (GitHub Code Scanning) e **Checkov** attraverso **GitHub Actions**, come descritto nell'articolo [Integrazione di GitHub CodeQL e Checkov per la Sicurezza Completa: Un Approccio Pratico con GitHub Actions](https://theredcode.it/devops/integrare-github-codeql-checkov-actions-sicurezza-completa/) pubblicato su TheRedCode.it
 
 > **ATTENZIONE: Questo progetto contiene VULNERABILITÀ INTENZIONALI a scopo didattico. NON UTILIZZARE in ambienti di produzione.**
 
