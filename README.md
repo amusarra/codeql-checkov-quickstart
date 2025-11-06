@@ -49,7 +49,7 @@ Questo repository contiene un semplice progetto Python Flask vulnerabile, file d
 
 ## Correzione delle Vulnerabilità
 
-L'[articolo di integrazione](https://www.google.com/url?sa=E&source=gmail&q=./INTEGRAZIONE_CODEQL_CHECKOV.md) **@TODO: Inserire link a TheRedCode.it. ** descrive in dettaglio come correggere le vulnerabilità presenti in questo progetto e come le scansioni di CodeQL e Checkov, dopo le correzioni, non dovrebbero più segnalare gli stessi problemi.
+L'articolo [Integrazione di GitHub CodeQL e Checkov per la Sicurezza Completa: Un Approccio Pratico con GitHub Actions](https://theredcode.it/devops/integrare-github-codeql-checkov-actions-sicurezza-completa/) pubblicato su TheRedCode.it descrive in dettaglio come correggere le vulnerabilità presenti in questo progetto e come le scansioni di CodeQL e Checkov, dopo le correzioni, non dovrebbero più segnalare gli stessi problemi.
 
 ## Disclaimer Importante
 
